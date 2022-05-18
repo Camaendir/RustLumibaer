@@ -7,15 +7,23 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[features]
+default = ["dep:ws2818-rgb-led-spi-driver"]
+# The simulate feature will run the application using a simulated LED-Strip
+simulate = ["dep:speedy2d"]
+
 [dependencies]
-paho-mqtt = "0.10"
-ws2818-rgb-led-spi-driver = "2.0.0"
-speedy2d = "1.0.5"
+paho-mqtt = "0.11"
 fps_clock = "2.0"
 futures = "0.3.4"
 prisma = "0.1.1"
 angular-units = "0.2.4"
 rand = "0.8.5"
 ctrlc = { version = "3.2.1", features = ["termination"] }
-portaudio = "0.7.0"
+# portaudio = "0.7.0"
 spectrum-analyzer = "1.2.3"
+dotenv = "0.15.0"
+lazy_static = "1.4.0"
+
+ws2818-rgb-led-spi-driver = { version = "2.0.0", optional = true }
+speedy2d = { version = "1.0.5", optional = true }
